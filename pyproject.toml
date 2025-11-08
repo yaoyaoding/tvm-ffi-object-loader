@@ -29,8 +29,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yaoyaoding/demo-object-loading"
-Repository = "https://github.com/yaoyaoding/demo-object-loading"
+Homepage = "https://github.com/NVIDIA/tvm-ffi-object-loader"
+Repository = "https://github.com/NVIDIA/tvm-ffi-object-loader"
 
 [tool.scikit-build]
 cmake.minimum-version = "3.18"

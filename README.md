@@ -38,13 +38,27 @@ ninja
 cd ../../..
 ```
 
-3. Build the package:
+3. Create build directory and configure with CMake:
 
 ```bash
-./build.sh
+mkdir -p build
+cd build
+cmake .. \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+    -G Ninja
 ```
 
-4. Install:
+4. Build the project:
+
+```bash
+cmake --build . -j$(nproc)
+cd ..
+```
+
+The shared library will be created at: `build/libtvm_ffi_object_loader.so`
+
+5. Install the Python package:
 
 ```bash
 # Using pip
@@ -134,7 +148,6 @@ tvm-ffi-object-loader/
 ├── CMakeLists.txt              # CMake build configuration
 ├── pyproject.toml              # Python package metadata
 ├── README.md                   # This file
-├── build.sh                    # Build script
 ├── example.py                  # Usage example
 ├── 3rdparty/
 │   └── tvm-ffi/               # TVM-FFI submodule
